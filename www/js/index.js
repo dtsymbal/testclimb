@@ -39,9 +39,9 @@ var app = {
         app.receivedEvent('deviceready');
 
         if ( device.platform == 'android' || device.platform == 'Android' ) {
-            pushNotification.register(
-                app.successHandler,
-                app.errorHandler, {
+            window.plugins.pushNotification.register(
+                successHandler,
+                errorHandler, {
                     "senderID":"939790234612",
                     "ecb":"onNotificationGCM"
                 });
@@ -66,15 +66,16 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    },
-
-    successHandler: function() {
-        alert('result = ' + result);
-    },
-    errorHandler: function() {
-        alert('error = ' + error);
     }
 };
+
+function successHandler(result) {
+    alert('result = ' + result);
+}
+
+function errorHandler(error) {
+    alert('error = ' + error);
+}
 
 function onNotificationGCM(e) {
 
