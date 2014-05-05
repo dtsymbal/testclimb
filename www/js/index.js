@@ -97,6 +97,10 @@ function onNotificationGCM(e) {
                 aaa = e.regid;
                 bbb = e.token;
 
+                for (var k in e) {
+                    alert(k + ': ' + e.k);
+                }
+
                 alert('registered');
             }
             break;
