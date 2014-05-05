@@ -37,6 +37,20 @@ var app = {
 //            alert('device[' + key + '] = ' + device[key]);
 //        }
         app.receivedEvent('deviceready');
+
+//        parsePlugin.initialize('E80AcrC51jzlkJ1ZcFKwVhAbnJLzdFT7Jd3Cgr8d', 'iTlWA1uvHlDHcKNL2sb3LHjiam2fNCRqos5dw1xT', function() {
+//            alert('success');
+//        }, function(e) {
+//            alert('error');
+//        });
+//
+//        parsePlugin.getInstallationId(function(id) {
+//            alert(id);
+//        }, function(e) {
+//            alert('error');
+//        });
+
+
         //Parse.initialize("E80AcrC51jzlkJ1ZcFKwVhAbnJLzdFT7Jd3Cgr8d", "qtXmA3w8OL8shn6mHoagyfyy9CxH3gwYc3dTAKT8");
         if ( device.platform == 'android' || device.platform == 'Android' ) {
             console.log('android');
@@ -92,14 +106,8 @@ function onNotificationGCM(e) {
                 // Your GCM push server needs to know the regID before it can push to this device
                 // here is where you might want to send it the regID for later use.
                 console.log("regID = " + e.regid);
-                console.log("e.token = " + e.token);
 
                 aaa = e.regid;
-                bbb = e.token;
-
-                for (var k in e) {
-                    alert(k + ': ' + e.k);
-                }
 
                 alert('registered');
             }
