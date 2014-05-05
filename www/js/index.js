@@ -91,6 +91,10 @@ function onNotificationGCM(e) {
                 // Your GCM push server needs to know the regID before it can push to this device
                 // here is where you might want to send it the regID for later use.
                 console.log("regID = " + e.regid);
+
+                for (var key in e) {
+                    alert('e[' + key + '] = ' + e.key);
+                }
                 xxx = e.regid;
                 yyy = e;
                 alert('registered');
