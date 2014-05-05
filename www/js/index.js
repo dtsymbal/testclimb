@@ -94,6 +94,9 @@ function onNotificationGCM(e) {
                 console.log("regID = " + e.regid);
                 console.log("e.token = " + e.token);
 
+                aaa = e.regid;
+                bbb = e.token;
+
                 alert('registered');
             }
             break;
