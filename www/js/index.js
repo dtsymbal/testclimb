@@ -16,6 +16,27 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+var express = require('express');
+var application = express();
+
+application.use(express.bodyParser());
+application.post('/abc',
+    express.basicAuth('mylogin', 'mypassword'),
+    function(req, res) {
+        // Use Parse JavaScript SDK to create a new message and save it.
+        var Message = Parse.Object.extend("Message");
+        var message = new Message();
+        message.save({ text: req.body.text }).then(function(message) {
+            res.send('Success');
+        }, function(error) {
+            res.status(500);
+            res.send('Error');
+        });
+    });
+application.listen();
+
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -38,17 +59,17 @@ var app = {
 //        }
         app.receivedEvent('deviceready');
 
-//        parsePlugin.initialize('E80AcrC51jzlkJ1ZcFKwVhAbnJLzdFT7Jd3Cgr8d', 'iTlWA1uvHlDHcKNL2sb3LHjiam2fNCRqos5dw1xT', function() {
-//            alert('success');
-//        }, function(e) {
-//            alert('error');
-//        });
-//
-//        parsePlugin.getInstallationId(function(id) {
-//            alert(id);
-//        }, function(e) {
-//            alert('error');
-//        });
+        parsePlugin.initialize('E80AcrC51jzlkJ1ZcFKwVhAbnJLzdFT7Jd3Cgr8d', 'iTlWA1uvHlDHcKNL2sb3LHjiam2fNCRqos5dw1xT', function() {
+            alert('success');
+        }, function(e) {
+            alert('error');
+        });
+
+        parsePlugin.getInstallationId(function(id) {
+            alert(id);
+        }, function(e) {
+            alert('error');
+        });
 
 
         //Parse.initialize("E80AcrC51jzlkJ1ZcFKwVhAbnJLzdFT7Jd3Cgr8d", "qtXmA3w8OL8shn6mHoagyfyy9CxH3gwYc3dTAKT8");
@@ -102,7 +123,9 @@ function onNotificationGCM(e) {
         case 'registered':
             if ( e.regid.length > 0 )
             {
-//                $("#app-status-ul").append('<li>REGISTERED -> REGID:' + e.regid + "</li>");
+//                $("#app-status-ul").append('<li>REGISTERED -> REGID:' +
+//
+// e.regid + "</li>");
                 // Your GCM push server needs to know the regID before it can push to this device
                 // here is where you might want to send it the regID for later use.
                 console.log("regID = " + e.regid);
