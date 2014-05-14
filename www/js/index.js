@@ -38,17 +38,17 @@ var app = {
 //        }
         app.receivedEvent('deviceready');
 
-        parsePlugin.initialize('E80AcrC51jzlkJ1ZcFKwVhAbnJLzdFT7Jd3Cgr8d', 'iTlWA1uvHlDHcKNL2sb3LHjiam2fNCRqos5dw1xT', function() {
-            alert('success');
-        }, function(e) {
-            alert('error');
-        });
-
-        parsePlugin.getInstallationId(function(id) {
-            alert(id);
-        }, function(e) {
-            alert('error');
-        });
+//        parsePlugin.initialize('E80AcrC51jzlkJ1ZcFKwVhAbnJLzdFT7Jd3Cgr8d', 'iTlWA1uvHlDHcKNL2sb3LHjiam2fNCRqos5dw1xT', function() {
+//            alert('success');
+//        }, function(e) {
+//            alert('error');
+//        });
+//
+//        parsePlugin.getInstallationId(function(id) {
+//            alert(id);
+//        }, function(e) {
+//            alert('error');
+//        });
 
 
         //Parse.initialize("E80AcrC51jzlkJ1ZcFKwVhAbnJLzdFT7Jd3Cgr8d", "qtXmA3w8OL8shn6mHoagyfyy9CxH3gwYc3dTAKT8");
