@@ -84,6 +84,11 @@ var app = {
     }
 };
 
+function tokenHandler(token){
+    console.log(token);
+    alert('token = ' + token);
+}
+
 function successHandler(result) {
     alert('result = ' + result);
 }
@@ -150,5 +155,24 @@ function onNotificationGCM(e) {
 //            $("#app-status-ul").append('<li>EVENT -> Unknown, an event was received and we do not know what it is</li>');
             alert('who knows what happened');
             break;
+    }
+}
+
+// iOS
+function onNotificationAPN (event) {
+    if ( event.alert )
+    {
+        navigator.notification.alert(event.alert);
+    }
+
+    if ( event.sound )
+    {
+        var snd = new Media(event.sound);
+        snd.play();
+    }
+
+    if ( event.badge )
+    {
+        pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
     }
 }
