@@ -50,7 +50,8 @@ var app = {
 //            alert('error');
 //        });
 
-
+        alert('abc');
+        alert(device.platform);
         //Parse.initialize("E80AcrC51jzlkJ1ZcFKwVhAbnJLzdFT7Jd3Cgr8d", "qtXmA3w8OL8shn6mHoagyfyy9CxH3gwYc3dTAKT8");
         if ( device.platform == 'android' || device.platform == 'Android' ) {
             console.log('android');
